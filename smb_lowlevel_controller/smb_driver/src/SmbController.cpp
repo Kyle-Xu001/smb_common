@@ -112,11 +112,11 @@ bool SmbController::readWheelSpeeds() {
 bool SmbController::readRCInputs() {
     bool res = true;
     int channel_1, channel_2 = -1;
-
-    if(serialDevice->GetValue(_PIC, 1, channel_1) != RQ_SUCCESS){
+    double batteryVoltage;
+    if(serialDevice->GetValue(_PIC, 7, channel_1) != RQ_SUCCESS){
       res = false;
     }
-    if(serialDevice->GetValue(_PIC, 2, channel_2) != RQ_SUCCESS){
+    if(serialDevice->GetValue(_PIC, 8, channel_2) != RQ_SUCCESS){
       res = false;
     }
     if((channel_1 < RC_UPPER_LIMIT && channel_1 > RC_LOWER_LIMIT) && (channel_2 < RC_UPPER_LIMIT && channel_2 > RC_LOWER_LIMIT)){
