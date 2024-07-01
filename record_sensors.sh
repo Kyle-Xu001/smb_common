@@ -23,8 +23,9 @@ rosparam dump ${outpath}/${now}.yaml
 rosbag record --output-name=${outpath}/${now}"_smb" \
 /control/smb_diff_drive/odom \
 /control/smb_lowlevel_controller/wheelSpeeds \
+/graph_msf/est_odometry_odom_imu \
 /imu \
-/rslidar/points  \
+/rslidar/points \
 /tf \
 /tf_static \
 /tracking_camera/odom/sample \
