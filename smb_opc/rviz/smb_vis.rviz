@@ -1,6 +1,6 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 70
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
@@ -15,8 +15,12 @@ Panels:
         - /FarPlanner1/GoalPoint1/Namespaces1
         - /FarPlanner1/GlobalGraph1
         - /TarePlanner1
+        - /viewpt_gain1
+        - /PointCloud21
+        - /LiDAR1
+        - /IMU1
       Splitter Ratio: 0.5111420750617981
-    Tree Height: 770
+    Tree Height: 494
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -85,8 +89,8 @@ Visualization Manager:
             - Alpha: 1
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 1.5905910730361938
-                Min Value: -1.1293858289718628
+                Max Value: 33.24566650390625
+                Min Value: -2.00189471244812
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -145,11 +149,9 @@ Visualization Manager:
                   Value: true
                 map_o3d_graph_msf_aligned:
                   Value: true
-                map_o3d_viz:
+                odom:
                   Value: true
                 odom_graph_msf:
-                  Value: true
-                odom_o3d:
                   Value: true
                 raw_rs_o3d:
                   Value: true
@@ -158,8 +160,6 @@ Visualization Manager:
                 rgb_camera_optical_link:
                   Value: true
                 rslidar:
-                  Value: true
-                rslidar_base_link:
                   Value: true
                 sensor:
                   Value: true
@@ -178,46 +178,42 @@ Visualization Manager:
               Show Axes: true
               Show Names: true
               Tree:
-                base_link:
-                  LF_WHEEL:
-                    {}
-                  LH_WHEEL:
-                    {}
-                  RF_WHEEL:
-                    {}
-                  RH_WHEEL:
-                    {}
-                  base_inertia:
-                    {}
-                  imu_link:
-                    imu:
+                odom:
+                  base_link:
+                    LF_WHEEL:
                       {}
-                  lidar_mount_link:
-                    rslidar_base_link:
+                    LH_WHEEL:
+                      {}
+                    RF_WHEEL:
+                      {}
+                    RH_WHEEL:
+                      {}
+                    base_inertia:
+                      {}
+                    imu_link:
+                      imu:
+                        {}
+                    lidar_mount_link:
                       rslidar:
                         map_o3d:
-                          map_o3d_viz:
-                            {}
                           raw_rs_o3d:
                             {}
-                        odom_o3d:
-                          {}
                         sensor:
                           camera:
                             {}
                           vehicle:
                             {}
-                  odom_graph_msf:
-                    world_graph_msf:
-                      map_o3d_graph_msf_aligned:
+                    odom_graph_msf:
+                      world_graph_msf:
+                        map_o3d_graph_msf_aligned:
+                          {}
+                        sensor_at_scan:
+                          {}
+                    rgb_camera_link:
+                      rgb_camera_optical_link:
                         {}
-                      sensor_at_scan:
-                        {}
-                  rgb_camera_link:
-                    rgb_camera_optical_link:
+                    top:
                       {}
-                  top:
-                    {}
               Update Interval: 0
               Value: true
             - Alpha: 1
@@ -229,73 +225,7 @@ Visualization Manager:
                 Expand Joint Details: false
                 Expand Link Details: false
                 Expand Tree: false
-                LF_WHEEL:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                LH_WHEEL:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
                 Link Tree Style: Links in Alphabetic Order
-                RF_WHEEL:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                RH_WHEEL:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                base_inertia:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                base_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                imu:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                imu_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                lidar_mount_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                rgb_camera_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                rgb_camera_optical_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                rslidar:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                rslidar_base_link:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
-                top:
-                  Alpha: 1
-                  Show Axes: false
-                  Show Trail: false
-                  Value: true
               Name: RobotModel
               Robot Description: smb_description
               TF Prefix: ""
@@ -926,7 +856,7 @@ Visualization Manager:
           Marker Topic: /sensor_coverage_planner/tare_visualizer/local_planning_horizon
           Name: LocalPlanningHorizon
           Namespaces:
-            "": true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -934,7 +864,7 @@ Visualization Manager:
           Marker Topic: /sensor_coverage_planner/tare_visualizer/exploring_subspaces
           Name: ExplorationSubspaces
           Namespaces:
-            "": true
+            {}
           Queue Size: 100
           Value: true
         - Alpha: 1
@@ -1001,7 +931,7 @@ Visualization Manager:
           Color: 245; 121; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -1016,14 +946,97 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
       Enabled: true
       Name: TarePlanner
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 78; 154; 6
+      Min Color: 255; 255; 255
+      Name: viewpt_gain
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.10000000149011612
+      Style: Boxes
+      Topic: /sensor_coverage_planner/viewpoint_vis_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /sensor_coverage_planner/planner_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: Origin
+      Radius: 0.10000000149011612
+      Reference Frame: world_graph_msf
+      Show Trail: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: LiDAR
+      Radius: 0.10000000149011612
+      Reference Frame: rslidar
+      Show Trail: false
+      Value: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: IMU
+      Radius: 0.10000000149011612
+      Reference Frame: imu
+      Show Trail: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: world_graph_msf
     Frame Rate: 30
   Name: root
   Tools:
@@ -1051,7 +1064,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 46.70221710205078
+      Distance: 10.480025291442871
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1059,29 +1072,29 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 1.7170408964157104
-        Y: -3.2570488452911377
-        Z: 8.846016883850098
+        X: -1.8896737098693848
+        Y: -3.1146657466888428
+        Z: 3.6587889194488525
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7397965788841248
+      Pitch: 1.0097966194152832
       Target Frame: <Fixed Frame>
-      Yaw: 3.385552406311035
+      Yaw: 3.3655495643615723
     Saved: ~
 Window Geometry:
   ControlPanel:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 1536
+  Height: 1016
   Hide Left Dock: false
   Hide Right Dock: true
   Image bounding Boxes:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000002d000000542fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000003d000003a2000000fb0100001cfa000000010100000002fb000000180043006f006e00740072006f006c00500061006e0065006c0100000000ffffffff000000d200fffffffb000000100044006900730070006c0061007900730100000000000001ea0000015600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001a0053004d00420050006f007700650072004d006f0074006f007201000003e5000000b70000007300fffffffb0000001e0053004d00420050006f007700650072005000610079006c006f0061006401000004a2000000dd0000007300ffffff00000001000001c3000003b9fc0200000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000003b9000000a400fffffffb0000001200520061007700200049006d00610067006500000003a20000019a0000001600fffffffb000000280049006d00610067006500200062006f0075006e00640069006e006700200042006f007800650073000000032b000002110000001600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000070f0000005efc0100000002fb0000000800540069006d006501000000000000070f000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000004390000054200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000002d00000033afc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afc0000003d00000248000000fb0100001cfa000000010100000002fb000000180043006f006e00740072006f006c00500061006e0065006c0100000000ffffffff000000d200fffffffb000000100044006900730070006c0061007900730100000000000001ea0000015600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001a0053004d00420050006f007700650072004d006f0074006f0072010000028b000000730000007300fffffffb0000001e0053004d00420050006f007700650072005000610079006c006f006100640100000304000000730000007300ffffff00000001000001c3000003b9fc0200000005fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000003b9000000a400fffffffb0000001200520061007700200049006d00610067006500000003a20000019a0000001600fffffffb000000280049006d00610067006500200062006f0075006e00640069006e006700200042006f007800650073000000032b000002110000001600fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007380000005efc0100000002fb0000000800540069006d0065010000000000000738000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000004620000033a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Raw Image:
     collapsed: false
   SMBPowerMotor:
@@ -1096,6 +1109,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 1807
-  X: 0
+  Width: 1848
+  X: 72
   Y: 27
