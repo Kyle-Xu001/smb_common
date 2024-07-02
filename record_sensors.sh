@@ -29,3 +29,8 @@ rosbag record --output-name=${outpath}/${now}"_smb" \
 /tf \
 /tf_static \
 /tracking_camera/odom/sample \
+/object_detector/detection_info \
+/object_detector/detection_point_clouds \
+/object_detector/detections_in_image \
+/object_detector/object_poses
+
