@@ -20,7 +20,7 @@ fi
 
 # Record
 rosparam dump ${outpath}/${now}.yaml
-rosbag record --output-name=${outpath}/${now}"_smb" \
+rosbag record --output-name=${outpath}/${now}"maze3_15_viewpts_res_0_6_neighbor_range_1_sensor_range_3_0_exploration_smb" \
 /control/smb_diff_drive/odom \
 /control/smb_lowlevel_controller/wheelSpeeds \
 /graph_msf/est_odometry_odom_imu \
@@ -32,5 +32,6 @@ rosbag record --output-name=${outpath}/${now}"_smb" \
 /object_detector/detection_info \
 /object_detector/detection_point_clouds \
 /object_detector/detections_in_image \
-/object_detector/object_poses
+/object_detector/object_poses \
+viewpoint_vis_cloud
 
