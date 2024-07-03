@@ -28,7 +28,7 @@ tmux send-keys -t $SESSION_NAME:0.2 'roslaunch object_detection object_detection
 tmux send-keys -t $SESSION_NAME:0.3 'cd ~/smb_ws && rosrun extract_artifacts detection_listener.py'
 tmux send-keys -t $SESSION_NAME:0.4 'roslaunch smb_navigation navigate2d_cmu.launch use_msf:=true global_frame:=world_graph_msf state_estimation_topic:=/transformed_odom launch_far_planner:=false'
 tmux send-keys -t $SESSION_NAME:0.5 'roslaunch smb_exploration smb_rss_tare.launch rviz:=false world_frame:=world_graph_msf'
-tmux send-keys -t $SESSION_NAME:0.6 'cd ~/smb_ws/core/ && bash record_sensors.sh'
+tmux send-keys -t $SESSION_NAME:0.6 'cd ~/smb_ws/src/core/ && bash record_sensors.sh'
 tmux send-keys -t $SESSION_NAME:0.7 'cd ~/smb_ws/src/extract_artifacts && git checkout -- .'
 
 # Select the first pane
