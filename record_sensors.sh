@@ -23,7 +23,6 @@ rosparam dump ${outpath}/${now}.yaml
 rosbag record --output-name=${outpath}/${now}"maze3_15_viewpts_res_0_6_neighbor_range_1_sensor_range_3_0_exploration_smb" \
 /control/smb_diff_drive/odom \
 /control/smb_lowlevel_controller/wheelSpeeds \
-/graph_msf/est_odometry_odom_imu \
 /imu \
 /rslidar/points \
 /tf \
