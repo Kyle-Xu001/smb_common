@@ -24,7 +24,8 @@ tmux split-window -v -t $SESSION_NAME:0.3
 # Execute commands in each pane
 tmux send-keys -t $SESSION_NAME:0.0 'roslaunch smb smb.launch'
 tmux send-keys -t $SESSION_NAME:0.1 'roslaunch smb_msf_graph smb_msf_graph.launch'
-tmux send-keys -t $SESSION_NAME:0.2 'roslaunch object_detection object_detection.launch object_detection_classes:="[0,1,2,10,11,24,25,39,64,67,73,74]"'
+# backpack 24, umbrella 25, stop sign 11, clock 74
+tmux send-keys -t $SESSION_NAME:0.2 'roslaunch object_detection object_detection.launch object_detection_classes:="[11,24,25,74]"'
 tmux send-keys -t $SESSION_NAME:0.3 'cd ~/smb_ws && rosrun extract_artifacts detection_listener.py'
 tmux send-keys -t $SESSION_NAME:0.4 'roslaunch smb_navigation navigate2d_cmu.launch use_msf:=true global_frame:=world_graph_msf state_estimation_topic:=/transformed_odom launch_far_planner:=false'
 tmux send-keys -t $SESSION_NAME:0.5 'roslaunch smb_exploration smb_rss_tare.launch rviz:=false world_frame:=world_graph_msf'
